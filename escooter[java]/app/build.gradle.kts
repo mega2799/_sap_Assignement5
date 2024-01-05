@@ -22,6 +22,24 @@ dependencies {
 
     // This dependency is used by the application.
     implementation("com.google.guava:guava:31.1-jre")
+
+    // Vert.x
+ 	implementation("io.vertx:vertx-core:4.4.5")
+ 	implementation("io.vertx:vertx-web:4.4.5")
+
+    // Hibernate
+        implementation("org.hibernate.orm:hibernate-core:6.4.1.Final")
+        // Hibernate Validator
+        implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
+        implementation("org.glassfish:jakarta.el:4.0.2")
+        // Agroal connection pool
+        implementation("org.hibernate.orm:hibernate-agroal:6.4.1.Final")
+        implementation("io.agroal:agroal-pool:2.1")
+        // logging via Log4j
+        implementation("org.apache.logging.log4j:log4j-core:2.20.0")
+        // JPA Metamodel Generator
+        annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen:6.4.1.Final")
+
 }
 
 application {
