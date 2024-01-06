@@ -3,11 +3,18 @@
  */
 package escooter.java;
 
+import java.time.Instant;
+import java.util.Date;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import hibernatesUtils.HibernateUtils;
+import escooter.java.entities.EscooterEntity;
+import escooter.java.entities.RideEntity;
+import escooter.java.entities.UserEntity;
+import escooter.java.interfaces.User;
 
 public class App {
     public String getGreeting() {
@@ -27,8 +34,15 @@ public class App {
         // Apertura della sessione
         try (Session session = sessionFactory.openSession()) {
             // Inizio della transazione
-            // Transaction transaction = session.beginTransaction();
+            Transaction transaction = session.beginTransaction();
 
+            EscooterEntity escooterEntity = new EscooterEntity("state", "location");
+            UserEntity userEntity = new UserEntity("Giacomino");
+            session.save(escooterEntity);
+            session.save(userEntity);
+            session.save(new RideEntity(Date.from(Instant.now()), true, null, userEntity, escooterEntity));
+            session.save(new RideEntity(Date.from(Instant.now()), true, null, userEntity, escooterEntity));
+            
             // // Esempio: salvataggio di un'entità nel database
             // TuaEntity tuaEntity = new TuaEntity();
             // tuaEntity.setId(1L);
@@ -38,7 +52,7 @@ public class App {
 
             // // Commit della transazione
             System.out.println("Connesso");
-            // transaction.commit();
+            transaction.commit();
         }
 
         // Chiusura della session factory

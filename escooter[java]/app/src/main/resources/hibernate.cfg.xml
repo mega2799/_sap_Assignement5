@@ -52,6 +52,8 @@
 
       <!-- List of XML mapping files -->
       <mapping class = "escooter.java.entities.EscooterEntity"/>
+      <mapping class = "escooter.java.entities.UserEntity"/>
+      <mapping class = "escooter.java.entities.RideEntity"/>
 
       <!-- <mapping class = "com.david.entities.Usuario"/>
       <mapping class = "com.david.entities.Computador"/>

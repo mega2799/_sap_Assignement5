@@ -1,5 +1,6 @@
 package escooter.java.entities;
 
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,7 +9,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Escooter")
-public class EscooterEntity {
+public class EscooterEntity{
 
     @Id
     @GeneratedValue
@@ -19,5 +20,11 @@ public class EscooterEntity {
 
     @Column(name = "location")
     public String location;
+
+    
+    public EscooterEntity(String state, String location) {
+        this.state = state;
+        this.location = location;
+    }
 
 }
