@@ -39,6 +39,13 @@ dependencies {
         implementation("org.apache.logging.log4j:log4j-core:2.20.0")
         // JPA Metamodel Generator
         annotationProcessor("org.hibernate.orm:hibernate-jpamodelgen:6.4.1.Final")
+        implementation("org.hibernate:hibernate-c3p0:5.6.5.Final")
+
+    // Aggiungi anche la dipendenza per il driver JDBC del tuo database (es. MySQL)
+    implementation("mysql:mysql-connector-java:8.0.26")
+
+implementation("javax.validation:validation-api:2.0.1.Final")
+
 
 }
 
